@@ -1,0 +1,23 @@
+package Payments.Group.Payments.DTO;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Refund_Captured_PaymentRequestDTO {
+
+    @JsonProperty("amount")
+    private AmountRequestDTO amount;
+
+    @JsonProperty("custom_id")
+    private String custom_id;
+
+    @JsonProperty("invoice_id")
+    private String invoice_id;
+
+    @JsonProperty("note_to_payer")
+    private String note_to_payer;
+
+    @JsonProperty("payment_Instruction")
+    private Payment_InstructionRequestDTO payment_Instruction;
+    
+    
+}
