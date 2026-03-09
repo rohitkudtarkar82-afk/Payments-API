@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Related_Ids {
-    public static Related_Ids related_Ids;
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID order_id;

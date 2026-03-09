@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Converted_Amount {
-    public static Converted_Amount converted_Amount;
+
     @Id
     @Column(nullable = true)
     private String currency_code;
@@ -26,5 +26,5 @@ public class Converted_Amount {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "exchange_Rate_id")
     private Exchange_Rate exchange_Rate;
-    
+
 }

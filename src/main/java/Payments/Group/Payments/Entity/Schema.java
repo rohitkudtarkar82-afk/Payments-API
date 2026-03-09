@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Schema {
-    public static Schema schema;
+
     @Id
     @Column(nullable = true)
     private String additionalItems;
@@ -58,7 +58,6 @@ public class Schema {
 
     @Column(nullable = true)
     private String pathStart;
-
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "media_id")

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Handling {
-    public static Handling handling;
+
     @Id
     @Column(nullable = true)
     private String currency_code;

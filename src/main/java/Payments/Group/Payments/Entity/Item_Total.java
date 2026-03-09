@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Item_Total {
-    public static Item_Total item_Total;
+
     @Id
     @Column(nullable = true)
     private String currency_code;
@@ -26,6 +26,5 @@ public class Item_Total {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "shipping_id")
     private Shipping shipping;
-
 
 }

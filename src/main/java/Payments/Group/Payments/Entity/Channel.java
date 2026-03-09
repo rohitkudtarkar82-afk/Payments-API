@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Channel {
-    public static Channel channel;
+
     @Id
     @Column(nullable = true)
     private String browser_type;

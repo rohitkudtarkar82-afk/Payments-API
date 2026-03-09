@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment_Source_Paypal {
-    public static Payment_Source_Paypal payment_Source_Paypal;
+
     @Column(nullable = true)
     private String email_address;
 

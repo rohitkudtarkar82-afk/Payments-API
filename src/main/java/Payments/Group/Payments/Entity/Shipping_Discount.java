@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Shipping_Discount {
-    public static Shipping_Discount shipping_Discount;
+
     @Id
     @Column(nullable = true)
     private String currency_code;
 
     @Column(nullable = true)
     private String value;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "discount_id")
     private Discount discount;

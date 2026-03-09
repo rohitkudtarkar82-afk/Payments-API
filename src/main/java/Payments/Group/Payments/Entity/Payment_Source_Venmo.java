@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment_Source_Venmo {
-    public static Payment_Source_Venmo payment_Source_Venmo;
+
     @Id
     @Column(nullable = true)
     private String user_name;

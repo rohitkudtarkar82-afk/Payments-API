@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payee {
-    public static Payee payee;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID merchant_id;

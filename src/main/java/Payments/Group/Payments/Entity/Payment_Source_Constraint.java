@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment_Source_Constraint {
-    public static Payment_Source_Constraint payment_Source_Constraint;
+
     @Id
     @Column(nullable = true)
     private String constraint_type;
@@ -25,5 +25,5 @@ public class Payment_Source_Constraint {
     @ManyToOne
     @JoinColumn(name = "preferences_id")
     private Preferences preferences;
-    
+
 }

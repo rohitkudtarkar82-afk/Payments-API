@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Gross_Amount {
-    public static Gross_Amount gross_Amount;
 
     @Id
     @Column(nullable = true)
@@ -23,7 +22,7 @@ public class Gross_Amount {
 
     @Column(nullable = true)
     private String value;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "paypal_Fee_id")
     private Paypal_Fee paypal_Fee;

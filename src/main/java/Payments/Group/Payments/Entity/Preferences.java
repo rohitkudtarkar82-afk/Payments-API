@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Preferences {
-    public static Preferences preferences;
+
     @Id
     @Column(nullable = true)
     private String payment_flow;
@@ -26,7 +26,7 @@ public class Preferences {
 
     @Column(nullable = true)
     private String include_vault_tokens;
-    
+
     @OneToMany(mappedBy = "preferences", cascade = CascadeType.ALL)
     private List<Payment_Source_Constraint> payment_Source_Constraints;
 }

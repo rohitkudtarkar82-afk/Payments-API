@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tax_Total {
-    public static Tax_Total tax_Total;
+
     @Id
     @Column(nullable = true)
     private String currency_code;
@@ -27,6 +27,4 @@ public class Tax_Total {
     @JoinColumn(name = "insurance_id")
     private Insurance insurance;
 
-
-    
 }

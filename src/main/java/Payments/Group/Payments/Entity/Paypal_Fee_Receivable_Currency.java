@@ -15,16 +15,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Paypal_Fee_Receivable_Currency {
-    public static Paypal_Fee_Receivable_Currency paypal_Fee_Receivable_Currency;
+
     @Id
     @Column(nullable = true)
     private String currency_code;
-    
+
     @Column(nullable = true)
     private String value;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "net_Amount_id")
     private Net_Amount net_Amount;
-    
+
 }

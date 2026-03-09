@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Insurance {
-    public static Insurance insurance;
+
     @Id
     @Column(nullable = true)
     private String currency_code;

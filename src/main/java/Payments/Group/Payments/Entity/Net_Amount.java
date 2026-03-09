@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Net_Amount {
-    public static Net_Amount net_Amount;
+    
     @Id
     @Column(nullable = true)
     private String currency_code;

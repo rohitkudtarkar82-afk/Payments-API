@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Network_Transaction_Reference {
-    public static Network_Transaction_Reference network_Transaction_Reference;
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

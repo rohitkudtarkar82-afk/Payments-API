@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Receivable_Amount {
-    public static Receivable_Amount receivable_Amount;
+
     @Id
     @Column(nullable = true)
     private String currency_code;

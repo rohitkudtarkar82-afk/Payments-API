@@ -8,14 +8,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Status_Details {
-    public static Status_Details status_Details;
+
     @Id
     @Column(nullable = true)
     private String reason;
 
-   
 }

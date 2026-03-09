@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Paypal_Pay_Later {
-    public static Paypal_Pay_Later paypal_Pay_Later;
+    
     @Id
     @Column(nullable = true)
     private String can_be_vaulted;

@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment_Instruction {
-    public static Payment_Instruction payment_Instruction;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

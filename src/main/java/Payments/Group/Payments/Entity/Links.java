@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Links {
-    public static Links links;
+
     @Id
     @Column(nullable = true)
     private String href;

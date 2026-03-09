@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Net_Amount_Receivable_Currency {
-    public static Net_Amount_Receivable_Currency net_Amount_Receivable_Currency;
+
     @Id
     @Column(nullable = true)
     private String currency_code;
@@ -25,5 +25,5 @@ public class Net_Amount_Receivable_Currency {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "total_Refunded_Amount_id")
     private Total_Refunded_Amount total_Refunded_Amount;
-    
+
 }

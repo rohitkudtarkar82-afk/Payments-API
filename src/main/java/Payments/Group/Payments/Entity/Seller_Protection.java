@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Seller_Protection {
-    public static Seller_Protection seller_Protection;
+
     @Id
     @Column(nullable = true)
     private String status;
-    
+
     @Column(nullable = true)
     private String dispute_categories;
 

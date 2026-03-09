@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Processor_Response {
-    public static Processor_Response processor_Response;
+
     @Id
     @Column(nullable = true)
     private String avs_code;
@@ -25,5 +25,5 @@ public class Processor_Response {
 
     @Column(nullable = true)
     private String payment_advice_code;
-    
+
 }

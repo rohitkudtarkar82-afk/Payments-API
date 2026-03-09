@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment_Tokens {
-    public static Payment_Tokens payment_Tokens;
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

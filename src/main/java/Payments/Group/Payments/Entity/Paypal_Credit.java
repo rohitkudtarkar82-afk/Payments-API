@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Paypal_Credit {
-    public static Paypal_Credit paypal_Credit;
+
     @Id
     @Column(nullable = true)
     private String can_be_vaulted;
@@ -25,7 +25,7 @@ public class Paypal_Credit {
 
     @Column(nullable = true)
     private String product_code;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "paypal_Pay_Later_id")
     private Paypal_Pay_Later paypal_Pay_Later;

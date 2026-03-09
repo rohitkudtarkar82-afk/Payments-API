@@ -12,12 +12,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Total_Refunded_Amount {
-    public static Total_Refunded_Amount total_Refunded_Amount;
+
     @Id
     @Column(nullable = true)
     private String currency_code;
-    
+
     @Column(nullable = true)
     private String value;
-    
+
 }

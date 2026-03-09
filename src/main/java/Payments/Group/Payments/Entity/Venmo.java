@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Venmo {
-    public static Venmo venmo;
+
     @Id
     @Column(nullable = true)
     private String can_be_vaulted;

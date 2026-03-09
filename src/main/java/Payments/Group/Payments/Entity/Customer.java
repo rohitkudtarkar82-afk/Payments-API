@@ -19,8 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
-    public static Customer customer;
-    
+
     @Column(nullable = true)
     private String country_code;
     @Id
@@ -28,7 +27,7 @@ public class Customer {
     private UUID id;
 
     @Column(nullable = true)
-    private String email; 
+    private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "channel_id")
@@ -38,6 +37,4 @@ public class Customer {
     @JoinColumn(name = "phone_id")
     private Phone phone;
 
-
-    
 }

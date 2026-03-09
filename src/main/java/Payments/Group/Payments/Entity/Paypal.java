@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Paypal {
-    public static Paypal paypal;
+
     @Id
     @Column(nullable = true)
     private String can_be_vaulted;

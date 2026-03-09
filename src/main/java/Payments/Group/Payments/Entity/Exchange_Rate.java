@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Exchange_Rate {
-    public static Exchange_Rate exchange_Rate;
+
     @Id
     @Column(nullable = true)
     private String source_currency;

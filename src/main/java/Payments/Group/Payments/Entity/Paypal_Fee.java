@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Paypal_Fee {
-    public static Paypal_Fee paypal_Fee;
+
     @Id
     @Column(nullable = true)
     private String currency_code;
@@ -26,5 +26,5 @@ public class Paypal_Fee {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "paypal_Fee_Receivable_Currency_id")
     private Paypal_Fee_Receivable_Currency paypal_Fee_Receivable_Currency;
-    
+
 }

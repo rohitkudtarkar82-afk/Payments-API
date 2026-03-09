@@ -16,12 +16,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payer {
-    public static Payer payer;
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID merchant_id;
 
     @Column(nullable = true)
     private String email_address;
-    
+
 }

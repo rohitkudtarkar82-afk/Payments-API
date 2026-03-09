@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Target_Schema {
-    public static Target_Schema target_Schema;
+
     @Id
     @Column(nullable = true)
     private String additionalItems;

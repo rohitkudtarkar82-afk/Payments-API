@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Phone {
-    public static Phone phone;
+
     @Id
     @Column(nullable = true)
     private String country_code;
@@ -23,5 +23,4 @@ public class Phone {
     @Column(nullable = true)
     private String extension_number;
 
-    
 }

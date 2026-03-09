@@ -8,11 +8,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Media {
-    public static Media media;
 
     @Id
     @Column(nullable = true)
