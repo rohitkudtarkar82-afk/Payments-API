@@ -1,4 +1,4 @@
-package Payments.Group.Payments.repository;
+package Payments.Group.Payments.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
