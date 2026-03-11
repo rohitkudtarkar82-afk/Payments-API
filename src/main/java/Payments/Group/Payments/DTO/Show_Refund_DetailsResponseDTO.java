@@ -43,8 +43,8 @@ public class Show_Refund_DetailsResponseDTO {
     @JsonProperty("payer")
     private PayerResponseDTO payer;
 
-    @JsonProperty("links")
-    private List<LinksResponseDTO> links;
+    @JsonProperty("link")
+    private List<LinkResponseDTO> link;
 
     @JsonProperty("create_time")
     private String create_time;

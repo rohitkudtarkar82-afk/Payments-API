@@ -48,7 +48,7 @@ public class Target_Schema {
     private String notValue;
 
     @Column(nullable = true)
-    private String links1;
+    private String link1;
 
     @Column(nullable = true)
     private String fragmentResolution;
@@ -61,6 +61,6 @@ public class Target_Schema {
     private Media media;
 
     @OneToMany(mappedBy = "target_Schema", cascade = CascadeType.ALL)
-    private List<Links> links;
+    private List<Link> link;
 
 }

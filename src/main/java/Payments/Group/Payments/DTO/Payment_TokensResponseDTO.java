@@ -17,8 +17,8 @@ public class Payment_TokensResponseDTO {
     @JsonProperty("id")
     private UUID id;
 
-    @JsonProperty("links")
-    private List<LinksResponseDTO> links;
+    @JsonProperty("link")
+    private List<LinkResponseDTO> link;
 
     @JsonProperty("payment_Source")
     private Payment_SourceResponseDTO payment_Source;

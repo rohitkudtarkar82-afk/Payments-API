@@ -46,8 +46,8 @@ public class Show_Captured_PaymentResponseDTO {
     @JsonProperty("disbursement_mode")
     private String disbursement_mode;
 
-    @JsonProperty("links")
-    private List<LinksResponseDTO> links;
+    @JsonProperty("link")
+    private List<LinkResponseDTO> link;
 
     @JsonProperty("processor_Response")
     private Processor_ResponseResponseDTO processor_Response;

@@ -40,8 +40,8 @@ public class Authorized_PaymentResponseDTO {
     @JsonProperty("expiration_time")
     private String expiration_time;
 
-    @JsonProperty("links")
-    private List<LinksResponseDTO> links;
+    @JsonProperty("link")
+    private List<LinkResponseDTO> link;
 
     @JsonProperty("create_time")
     private String create_time;

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Links {
+public class Link {
 
     @Id
     @Column(nullable = true)

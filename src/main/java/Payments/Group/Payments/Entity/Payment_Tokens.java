@@ -25,6 +25,6 @@ public class Payment_Tokens {
     private UUID id;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "payment_Token_id") // foreign key in Links table
-    private List<Links> links;
+    @JoinColumn(name = "payment_Token_id") // foreign key in Link table
+    private List<Link> link;
 }

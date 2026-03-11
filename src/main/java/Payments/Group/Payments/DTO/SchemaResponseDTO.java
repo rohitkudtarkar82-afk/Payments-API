@@ -42,8 +42,8 @@ public class SchemaResponseDTO {
     @JsonProperty("notValue")
     private String notValue;
 
-    @JsonProperty("links1")
-    private String links1;
+    @JsonProperty("link1")
+    private String link1;
 
     @JsonProperty("fragmentResolution")
     private String fragmentResolution;
@@ -54,8 +54,8 @@ public class SchemaResponseDTO {
     @JsonProperty("media")
     private MediaResponseDTO media;
 
-    @JsonProperty("links")
-    private List<LinksResponseDTO> links;
+    @JsonProperty("link")
+    private List<LinkResponseDTO> link;
     
     
 }

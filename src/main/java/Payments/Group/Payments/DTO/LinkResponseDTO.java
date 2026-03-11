@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LinksResponseDTO {
+public class LinkResponseDTO {
     
     @JsonProperty("href")
     private String href;
