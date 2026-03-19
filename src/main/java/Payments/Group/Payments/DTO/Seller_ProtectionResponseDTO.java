@@ -1,5 +1,7 @@
 package Payments.Group.Payments.DTO;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -10,11 +12,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Seller_ProtectionResponseDTO {
+    private UUID id;
 
     @JsonProperty("status")
     private String status;
 
     @JsonProperty("dispute_categories")
-    private String disputeCategories;
+    private String dispute_Categories;
     
 }

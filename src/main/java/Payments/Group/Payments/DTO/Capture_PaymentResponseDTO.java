@@ -46,8 +46,8 @@ public class Capture_PaymentResponseDTO {
     @JsonProperty("disbursement_mode")
     private String disbursement_mode;
 
-    @JsonProperty("link")
-    private List<LinkResponseDTO> link;
+    @JsonProperty("links")
+    private List<LinksResponseDTO> links;
 
     @JsonProperty("processor_Response")
     private Processor_ResponseResponseDTO processor_Response;
@@ -63,5 +63,9 @@ public class Capture_PaymentResponseDTO {
 
     @JsonProperty("payee")
     private PayeeResponseDTO payee;
+
+    public Object getCreate_time;
+
+    
     
 }

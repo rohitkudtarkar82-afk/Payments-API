@@ -1,5 +1,7 @@
 package Payments.Group.Payments.DTO;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -10,9 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VenmoResponseDTO {
-
+    private UUID id;
+    
     @JsonProperty("can_be_vaulted")
-    private String can_be_vaulted;
+    private Boolean can_be_vaulted;
 
     @JsonProperty("country_code")
     private String country_code;
@@ -21,13 +24,13 @@ public class VenmoResponseDTO {
     private String product_code;
 
     @JsonProperty("eligible_in_paypal_network")
-    private String eligible_in_paypal_network;
+    private Boolean eligible_in_paypal_network;
 
     @JsonProperty("recommended")
-    private String recommended;
+    private Boolean recommended;
 
     @JsonProperty("recommended_priority")
-    private String recommended_priority;
+    private Integer recommended_priority;
 
     @JsonProperty("paypal_credit")
     private Paypal_CreditResponseDTO paypal_Credit;

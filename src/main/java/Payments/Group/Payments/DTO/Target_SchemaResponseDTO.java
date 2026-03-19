@@ -1,6 +1,7 @@
 package Payments.Group.Payments.DTO;
 
-import java.util.List;
+
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -13,6 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Target_SchemaResponseDTO {
 
+    private UUID id;
+    
     @JsonProperty("additionalItems")
     private String additionalItems;
 
@@ -40,8 +43,8 @@ public class Target_SchemaResponseDTO {
     @JsonProperty("notValue")
     private String notValue;
 
-    @JsonProperty("link1")
-    private String link1;
+    @JsonProperty("links1")
+    private String links1;
 
     @JsonProperty("fragmentResolution")
     private String fragmentResolution;
@@ -52,7 +55,5 @@ public class Target_SchemaResponseDTO {
     @JsonProperty("media")
     private MediaResponseDTO media;
 
-    @JsonProperty("link")
-    private List<LinkResponseDTO> link;
 
 }

@@ -1,41 +1,50 @@
 package Payments.Group.Payments.Entity;
 
+import java.util.UUID;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "venmo")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Venmo {
 
     @Id
-    @Column(nullable = true)
-    private String can_be_vaulted;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
-    @Column(nullable = true)
-    private String country_code;
+    @Column(name = "can_be_vaulted")
+    private Boolean canBeVaulted;
 
-    @Column(nullable = true)
-    private String product_code;
+    @Column(name = "country_code")
+    private String countryCode;
 
-    @Column(nullable = true)
-    private String eligible_in_paypal_network;
+    @Column(name = "product_code")
+    private String productCode;
 
-    @Column(nullable = true)
-    private String recommended;
+    @Column(name = "eligible_in_paypal_network")
+    private Boolean eligibleInPaypalNetwork;
 
-    @Column(nullable = true)
-    private String recommended_priority;
+    @Column(name = "recommended")
+    private Boolean recommended;
+
+    @Column(name = "recommended_priority")
+    private Integer recommendedPriority;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "paypal_Credit_id")
-    private Paypal_Credit paypal_Credit;
+    @JoinColumn(name = "paypal_credit_id")
+    private Paypal_Credit paypalCredit;
 }

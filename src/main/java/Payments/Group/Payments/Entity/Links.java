@@ -1,37 +1,45 @@
 package Payments.Group.Payments.Entity;
 
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Table(name = "Links")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Link {
+public class Links {
 
     @Id
-    @Column(nullable = true)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+    @Column(name = "href")
     private String href;
 
-    @Column(nullable = true)
+    @Column(name = "rel")
     private String rel;
 
-    @Column(nullable = true)
+    @Column(name = "method")
     private String method;
 
-    @Column(nullable = true)
+    @Column(name = "title")
     private String title;
 
-    @Column(nullable = true)
+    @Column(name = "mediaType")
     private String mediaType;
 
-    @Column(nullable = true)
+    @Column(name = "encType")
     private String encType;
 
     @ManyToOne

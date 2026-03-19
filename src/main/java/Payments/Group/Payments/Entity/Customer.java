@@ -10,23 +10,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Table(name = "Customer")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
 
-    @Column(nullable = true)
-    private String country_code;
+   
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    @Column(name = "country_code")
+    private String country_code;
 
-    @Column(nullable = true)
+    @Column(name = "email")
     private String email;
 
     @OneToOne(cascade = CascadeType.ALL)

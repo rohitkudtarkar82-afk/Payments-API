@@ -7,12 +7,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Table(name = "Network_Transaction_Reference")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Network_Transaction_Reference {
@@ -21,13 +23,13 @@ public class Network_Transaction_Reference {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = true)
+    @Column(name = "date")
     private String date;
 
-    @Column(nullable = true)
+    @Column(name = "network")
     private String network;
 
-    @Column(nullable = true)
+    @Column(name = "acquirer_reference_number")
     private String acquirer_reference_number;
 
 }

@@ -1,59 +1,66 @@
 package Payments.Group.Payments.Entity;
 
 import java.util.List;
+import java.util.UUID;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Table(name = "Target_Schema")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Target_Schema {
 
     @Id
-    @Column(nullable = true)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+    @Column(name = "additionalItems")
     private String additionalItems;
 
-    @Column(nullable = true)
+    @Column(name = "items")
     private String items;
 
-    @Column(nullable = true)
+    @Column(name = "definitions")
     private String definitions;
 
-    @Column(nullable = true)
+    @Column(name = "patternProperties")
     private String patternProperties;
 
-    @Column(nullable = true)
+    @Column(name = " properties")
     private String properties;
 
-    @Column(nullable = true)
+    @Column(name = "allOf")
     private String allOf;
 
-    @Column(nullable = true)
+    @Column(name = "anyOf")
     private String anyOf;
 
-    @Column(nullable = true)
+    @Column(name = "oneOf")
     private String oneOf;
 
-    @Column(nullable = true)
+    @Column(name = "notValue")
     private String notValue;
 
-    @Column(nullable = true)
-    private String link1;
+    @Column(name = "links1")
+    private String links1;
 
-    @Column(nullable = true)
+    @Column(name = "fragmentResolution")
     private String fragmentResolution;
 
-    @Column(nullable = true)
+    @Column(name = "pathStart")
     private String pathStart;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -61,6 +68,6 @@ public class Target_Schema {
     private Media media;
 
     @OneToMany(mappedBy = "target_Schema", cascade = CascadeType.ALL)
-    private List<Link> link;
+    private List<Links> links;
 
 }

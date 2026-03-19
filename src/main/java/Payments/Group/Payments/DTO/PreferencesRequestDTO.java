@@ -17,10 +17,10 @@ public class PreferencesRequestDTO {
     private String payment_flow;
 
     @JsonProperty("include_account_details")
-    private String include_account_details;
+    private Boolean include_account_details;
 
     @JsonProperty("include_vault_tokens")
-    private String include_vault_tokens;
+    private Boolean include_vault_tokens;
 
     @JsonProperty("payment_Source_Constraint")
     private List<Payment_Source_ConstraintRequestDTO> payment_Source_Constraint;

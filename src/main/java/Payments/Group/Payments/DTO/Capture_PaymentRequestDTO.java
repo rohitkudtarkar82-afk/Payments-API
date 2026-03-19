@@ -28,5 +28,20 @@ public class Capture_PaymentRequestDTO {
 
     @JsonProperty("soft_descriptor")
     private String soft_descriptor;
+
+    public Status_DetailsResponseDTO getStatus_details() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getStatus_details'");
+    }
+
+    public Processor_ResponseResponseDTO getProcessor_response() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getProcessor_response'");
+    }
+
+    public Network_Transaction_ReferenceResponseDTO getNetwork_transaction_reference() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getNetwork_transaction_reference'");
+    }
     
 }

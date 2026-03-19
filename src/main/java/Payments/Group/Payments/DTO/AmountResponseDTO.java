@@ -1,5 +1,7 @@
 package Payments.Group.Payments.DTO;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -10,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AmountResponseDTO {
+      private UUID id;
 
       @JsonProperty("currency_code")
       private String currency_code;
@@ -22,5 +25,7 @@ public class AmountResponseDTO {
 
       @JsonProperty("breakdown")
       private BreakdownResponseDTO breakdown;
+
+     
 
 }

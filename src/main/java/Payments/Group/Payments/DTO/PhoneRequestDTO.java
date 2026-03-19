@@ -1,5 +1,7 @@
 package Payments.Group.Payments.DTO;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -10,7 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PhoneRequestDTO {
-
+    private UUID id;
+    
     @JsonProperty("country_code")
     private String country_code;
 

@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import Payments.Group.Payments.Entity.Gross_Amount;
+import Payments.Group.Payments.Entity.Links;
 
-public interface Gross_AmountRepository extends JpaRepository<Gross_Amount, UUID> {
+public interface LinksRepository extends JpaRepository<Links, UUID> {
 
 }

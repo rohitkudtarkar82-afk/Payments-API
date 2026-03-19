@@ -1,5 +1,7 @@
 package Payments.Group.Payments.DTO;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -11,8 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Paypal_Pay_LaterResponseDTO {
 
+    private UUID id;
+    
     @JsonProperty("can_be_vaulted")
-    private String can_be_vaulted;
+    private Boolean can_be_vaulted;
 
     @JsonProperty("country_code")
     private String country_code;

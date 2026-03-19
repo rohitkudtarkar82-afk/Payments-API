@@ -19,5 +19,10 @@ public class List_Eligible_PaymentRequestDTO {
 
     @JsonProperty("preferences")
     private PreferencesRequestDTO preferences;
+
+    public ChannelRequestDTO getChannel() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getChannel'");
+    }
     
 }

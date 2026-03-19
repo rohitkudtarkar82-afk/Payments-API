@@ -22,5 +22,5 @@ public class Related_IdsResponseDTO {
 
     @JsonProperty("capture_id")
     private UUID capture_id;
-    
+
 }

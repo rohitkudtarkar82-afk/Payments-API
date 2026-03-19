@@ -10,22 +10,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Table(name = "Payment_Source_Paypal")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment_Source_Paypal {
 
-    @Column(nullable = true)
-    private String email_address;
-
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "payer_id")
     private UUID payer_id;
+
+    @Column(name = "email_address")
+    private String email_address;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payment_Source_Venmo_id")

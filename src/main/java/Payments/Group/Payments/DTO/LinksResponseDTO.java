@@ -1,7 +1,10 @@
 package Payments.Group.Payments.DTO;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import Payments.Group.Payments.Entity.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +12,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LinkResponseDTO {
-    
+public class LinksResponseDTO {
+    private UUID id;
+
     @JsonProperty("href")
     private String href;
 
@@ -28,12 +32,6 @@ public class LinkResponseDTO {
 
     @JsonProperty("enc_type")
     private String encType;
-
-    @JsonProperty("schema_id")
-    private String schemaId;
-
-    @JsonProperty("target_schema_id")
-    private String targetSchemaId;
 
     @JsonProperty("schema")
     private SchemaResponseDTO schema;

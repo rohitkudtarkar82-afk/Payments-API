@@ -1,10 +1,15 @@
 package Payments.Group.Payments.Service;
 
+import java.util.List;
+
+import Payments.Group.Payments.DTO.Authorized_PaymentRequestDTO;
 import Payments.Group.Payments.DTO.Authorized_PaymentResponseDTO;
 import Payments.Group.Payments.DTO.Capture_PaymentRequestDTO;
 import Payments.Group.Payments.DTO.Capture_PaymentResponseDTO;
+import Payments.Group.Payments.DTO.LinksResponseDTO;
 import Payments.Group.Payments.DTO.List_Eligible_PaymentRequestDTO;
 import Payments.Group.Payments.DTO.List_Eligible_PaymentResponseDTO;
+import Payments.Group.Payments.DTO.Payment_InstructionRequestDTO;
 import Payments.Group.Payments.DTO.Reauthorize_PaymentRequestDTO;
 import Payments.Group.Payments.DTO.Reauthorize_PaymentResponseDTO;
 import Payments.Group.Payments.DTO.Refund_Captured_PaymentRequestDTO;
@@ -17,17 +22,17 @@ import Payments.Group.Payments.DTO.Show_Refund_DetailsResponseDTO;
 public interface PaymentsService {
 
     // 1. GET: Show details for authorized payment
-    Show_Details_PaymentResponseDTO show_Details_Payment(
+     Show_Details_PaymentResponseDTO show_Details_Payment(
 
             String authorizationid,
 
             String Authorization,
 
             String PayPalAuthAssertion
-        );
+        ); 
 
     // 2. POST: Capture authorized payment
-    Capture_PaymentResponseDTO capture_Payment(
+      Capture_PaymentResponseDTO capture_Payment(
 
             String authorizationid,
 
@@ -40,28 +45,23 @@ public interface PaymentsService {
             String PayPalAuthAssertion,
 
             Capture_PaymentRequestDTO capture_PaymentRequestDTO
-
+            
     );
 
     // 3. POST: Reauthorize authorized payment
-    Reauthorize_PaymentResponseDTO reauthorize_Payment(
-
+     /*    Reauthorize_PaymentResponseDTO reauthorize_Payment(
             String authorizationid,
-
             String PayPalRequestId,
-
             String Prefer,
-
             String Authorization,
-
             String PayPalAuthAssertion,
-
             Reauthorize_PaymentRequestDTO reauthorize_PaymentRequestDTO
+    );*/
 
-    );
 
-    // 4. POST: Void authorized payment
-         Authorized_PaymentResponseDTO authorized_Payment(
+
+     // 4. POST: Void authorized payment
+      /*     Authorized_PaymentResponseDTO authorized_Payment(
 
             String authorization_id,
 
@@ -71,12 +71,14 @@ public interface PaymentsService {
 
             String PayPalRequestId,
 
-            String Prefer
+            String Prefer,
 
-    );
+            Authorized_PaymentRequestDTO authorized_PaymentRequestDTO
+
+    );*/
 
     // 5. GET: Show captured payment details
-    Show_Captured_PaymentResponseDTO show_Captured_Payment(
+    /* Show_Captured_PaymentResponseDTO show_Captured_Payment(
 
             String captureid,
 
@@ -122,6 +124,11 @@ public interface PaymentsService {
             String Authorization,
 
             String PayPalAuthAssertion
-        );
+        );*/
+
+        List<LinksResponseDTO> getAllLinks();
+
+        Authorized_PaymentResponseDTO authorized_Payment(String authorization_id, String Authorization,
+                String PayPalAuthAssertion, String PayPalRequestId, String Prefer);
 
 }

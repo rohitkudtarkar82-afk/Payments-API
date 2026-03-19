@@ -12,12 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment_Source_PaypalResponseDTO {
+    @JsonProperty("payer_id")
+    private UUID payer_id;
 
     @JsonProperty("email_address")
     private String email_address;
-
-    @JsonProperty("payer_id")
-    private UUID payer_id;
 
     @JsonProperty("payment_Source_Venmo")
     private Payment_Source_VenmoResponseDTO payment_Source_Venmo;
