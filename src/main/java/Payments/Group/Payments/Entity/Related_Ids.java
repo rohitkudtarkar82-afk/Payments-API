@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Related_Ids {
 
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "order_id")
     private UUID order_id;

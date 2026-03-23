@@ -31,4 +31,9 @@ public class Phone {
     @Column(name = "extension_number")
     private String extension_number;
 
+    public void setPhone_type(Object phone_type) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setPhone_type'");
+    }
+
 }

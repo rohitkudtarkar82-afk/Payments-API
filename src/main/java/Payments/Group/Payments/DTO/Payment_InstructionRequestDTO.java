@@ -1,7 +1,7 @@
 package Payments.Group.Payments.DTO;
 
 import java.util.List;
-import java.util.UUID;
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -27,9 +27,6 @@ public class Payment_InstructionRequestDTO {
     @JsonProperty("platform_Fees")
     private List<Platform_FeesRequestDTO> platform_Fees;
 
-    public Payment_InstructionRequestDTO getPayment_instruction() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPayment_instruction'");
-    }
+    
 
 }

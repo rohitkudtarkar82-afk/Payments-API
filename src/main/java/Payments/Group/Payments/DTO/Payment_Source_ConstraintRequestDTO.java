@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment_Source_ConstraintRequestDTO {
-
     @JsonProperty("constraint_type")
     private String constraint_type;
 

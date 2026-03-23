@@ -22,5 +22,5 @@ public class Payment_TokensResponseDTO {
 
     @JsonProperty("payment_Source")
     private Payment_SourceResponseDTO payment_Source;
-    
+
 }

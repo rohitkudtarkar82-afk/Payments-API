@@ -54,5 +54,7 @@ public class Authorized_PaymentResponseDTO {
 
     @JsonProperty("payee")
     private PayeeResponseDTO payee;
+
+    
     
 }

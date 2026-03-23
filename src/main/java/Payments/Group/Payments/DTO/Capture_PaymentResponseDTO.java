@@ -64,7 +64,7 @@ public class Capture_PaymentResponseDTO {
     @JsonProperty("payee")
     private PayeeResponseDTO payee;
 
-    public Object getCreate_time;
+    
 
     
     

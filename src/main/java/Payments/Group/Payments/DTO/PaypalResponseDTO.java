@@ -13,10 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PaypalResponseDTO {
 
-    private UUID id;
-    
     @JsonProperty("can_be_vaulted")
-    private String can_be_vaulted;
+    private Boolean can_be_vaulted;
 
     @JsonProperty("country_code")
     private String country_code;
@@ -25,15 +23,11 @@ public class PaypalResponseDTO {
     private String product_code;
 
     @JsonProperty("eligible_in_paypal_network")
-    private String eligible_in_paypal_network;
+    private Boolean eligible_in_paypal_network;
 
     @JsonProperty("recommended")
-    private String recommended;
+    private Boolean recommended;
 
     @JsonProperty("recommended_priority")
-    private String recommended_priority;
-
-    @JsonProperty("venmo")
-    private VenmoResponseDTO venmo;
-    
+    private Integer recommended_priority;
 }

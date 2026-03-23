@@ -27,5 +27,6 @@ public class Media {
 
     @Column(name = "binaryEncoding")
     private String binaryEncoding;
+    
 
 }

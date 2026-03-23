@@ -1,6 +1,7 @@
 package Payments.Group.Payments.Entity;
 
 
+
 import java.util.List;
 import java.util.UUID;
 
@@ -10,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -36,8 +38,9 @@ public class Preferences {
     @Column(name = "include_vault_tokens")
     private Boolean include_vault_tokens;
 
-    @OneToMany(mappedBy = "preferences", cascade = CascadeType.ALL)
-    private List<Payment_Source_Constraint> payment_Source_Constraints;
+  @OneToMany(cascade = CascadeType.ALL)
+@JoinColumn(name = "preferences_id") // FK in Payment_Source_Constraint table
+private List<Payment_Source_Constraint> paymentSourceConstraints;
 
    
 }

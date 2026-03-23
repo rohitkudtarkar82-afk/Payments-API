@@ -2,6 +2,7 @@ package Payments.Group.Payments.DTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,7 @@ public class Eligible_MethodsResponseDTO {
 
     @JsonProperty("paypal_Pay_Later")
     private Paypal_Pay_LaterResponseDTO paypal_Pay_Later;
+
+    
     
 }

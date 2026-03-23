@@ -22,5 +22,10 @@ public class PhoneRequestDTO {
 
     @JsonProperty("extension_number")
     private String extension_number;
+
+    public Object getPhone_type() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPhone_type'");
+    }
     
 }

@@ -20,4 +20,6 @@ public class ChannelRequestDTO {
     @JsonProperty("device_type")
     private String device_type;
 
+   
+
 }

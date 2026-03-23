@@ -6,6 +6,7 @@ import java.util.UUID;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -39,7 +40,7 @@ public class Target_Schema {
     @Column(name = "patternProperties")
     private String patternProperties;
 
-    @Column(name = " properties")
+    @Column(name = "properties")
     private String properties;
 
     @Column(name = "allOf")
@@ -62,12 +63,10 @@ public class Target_Schema {
 
     @Column(name = "pathStart")
     private String pathStart;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "media_id")
+    
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+   @JoinColumn(name = "media_id", referencedColumnName = "id")
     private Media media;
 
-    @OneToMany(mappedBy = "target_Schema", cascade = CascadeType.ALL)
-    private List<Links> links;
 
 }

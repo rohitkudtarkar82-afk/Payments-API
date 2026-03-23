@@ -27,4 +27,6 @@ public class Payment_Tokens {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "payment_Token_id") // foreign key in Link table
     private List<Links> links;
+
+    
 }

@@ -47,4 +47,9 @@ public class Paypal {
     @JoinColumn(name = "venmo_id")
     private Venmo venmo;
 
+    public void setCan_be_vaulted(Object can_be_vaulted2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setCan_be_vaulted'");
+    }
+
 }

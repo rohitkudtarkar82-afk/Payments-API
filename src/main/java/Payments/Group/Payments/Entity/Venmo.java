@@ -47,4 +47,9 @@ public class Venmo {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "paypal_credit_id")
     private Paypal_Credit paypalCredit;
+
+    public void setEligibleInVenmoNetwork(Object eligible_in_venmo_network) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setEligibleInVenmoNetwork'");
+    }
 }

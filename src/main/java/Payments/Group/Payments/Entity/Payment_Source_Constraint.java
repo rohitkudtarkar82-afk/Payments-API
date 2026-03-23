@@ -30,8 +30,8 @@ public class Payment_Source_Constraint {
     @Column(name = "payment_sources")
     private String payment_sources;
 
-    @ManyToOne
-    @JoinColumn(name = "preferences_id")
-    private Preferences preferences;
+     @ManyToOne
+@JoinColumn(name = "preferences_id", insertable = false, updatable = false)
+private Preferences preferences;
 
 }

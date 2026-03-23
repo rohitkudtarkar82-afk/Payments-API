@@ -1,5 +1,7 @@
 package Payments.Group.Payments.DTO;
 
+
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,7 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PreferencesRequestDTO {
-
     @JsonProperty("payment_flow")
     private String payment_flow;
 
@@ -22,7 +23,8 @@ public class PreferencesRequestDTO {
     @JsonProperty("include_vault_tokens")
     private Boolean include_vault_tokens;
 
-    @JsonProperty("payment_Source_Constraint")
-    private List<Payment_Source_ConstraintRequestDTO> payment_Source_Constraint;
-    
+    @JsonProperty("payment_source_constraints")
+    private List<Payment_Source_ConstraintRequestDTO> payment_source_constraints;
+
+   
 }
