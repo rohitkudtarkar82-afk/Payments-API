@@ -23,7 +23,6 @@ import Payments.Group.Payments.DTO.Capture_PaymentRequestDTO;
 import Payments.Group.Payments.DTO.Capture_PaymentResponseDTO;
 import Payments.Group.Payments.DTO.List_Eligible_PaymentRequestDTO;
 import Payments.Group.Payments.DTO.List_Eligible_PaymentResponseDTO;
-import Payments.Group.Payments.DTO.Payment_InstructionRequestDTO;
 import Payments.Group.Payments.DTO.Reauthorize_PaymentRequestDTO;
 import Payments.Group.Payments.DTO.Reauthorize_PaymentResponseDTO;
 import Payments.Group.Payments.DTO.Refund_Captured_PaymentRequestDTO;
