@@ -1,5 +1,7 @@
 package Payments.Group.Payments.DTO;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Refund_Captured_PaymentRequestDTO {
@@ -8,10 +10,10 @@ public class Refund_Captured_PaymentRequestDTO {
     private AmountRequestDTO amount;
 
     @JsonProperty("custom_id")
-    private String custom_id;
+    private UUID custom_id;
 
     @JsonProperty("invoice_id")
-    private String invoice_id;
+    private UUID invoice_id;
 
     @JsonProperty("note_to_payer")
     private String note_to_payer;

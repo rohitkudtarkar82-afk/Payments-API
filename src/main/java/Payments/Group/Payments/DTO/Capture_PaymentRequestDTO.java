@@ -1,5 +1,7 @@
 package Payments.Group.Payments.DTO;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Capture_PaymentRequestDTO {
 
     @JsonProperty("invoice_id")
-    private String invoice_id;
+    private UUID invoice_id;
 
     @JsonProperty("note_to_payer")
     private String note_to_payer;

@@ -1,7 +1,7 @@
 package Payments.Group.Payments.DTO;
 
 import java.util.List;
-
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -16,10 +16,10 @@ public class Payment_InstructionRequestDTO {
 
 
     @JsonProperty("payee_pricing_tier_id;")
-    private String payee_pricing_tier_id;
+    private UUID payee_pricing_tier_id;
 
     @JsonProperty("payee_receivable_fx_rate_id")
-    private String payee_receivable_fx_rate_id;
+    private UUID payee_receivable_fx_rate_id;
 
     @JsonProperty("disbursement_mode")
     private String disbursement_mode;

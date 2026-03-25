@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PayerResponseDTO {
-    private UUID id;
+   
 
     @JsonProperty("merchant_id")
-    private String merchant_id;
+    private UUID merchant_id;
 
     @JsonProperty("email_address")
     private String email_address;

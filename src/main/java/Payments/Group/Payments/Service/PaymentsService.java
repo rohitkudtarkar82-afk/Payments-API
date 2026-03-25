@@ -22,14 +22,14 @@ import Payments.Group.Payments.DTO.Show_Refund_DetailsResponseDTO;
 public interface PaymentsService {
 
     // 1. GET: Show details for authorized payment
-   /*   Show_Details_PaymentResponseDTO show_Details_Payment(
+   /*  Show_Details_PaymentResponseDTO show_Details_Payment(
 
             String authorizationid,
 
             String Authorization,
 
             String PayPalAuthAssertion
-        ); */
+        );  */
 
     // 2. POST: Capture authorized payment
        Capture_PaymentResponseDTO capture_Payment(
@@ -49,19 +49,19 @@ public interface PaymentsService {
     ); 
 
     // 3. POST: Reauthorize authorized payment
-       /*    Reauthorize_PaymentResponseDTO reauthorize_Payment(
+           Reauthorize_PaymentResponseDTO reauthorize_Payment(
             String authorizationid,
             String PayPalRequestId,
             String Prefer,
             String Authorization,
             String PayPalAuthAssertion,
             Reauthorize_PaymentRequestDTO reauthorize_PaymentRequestDTO
-    ); */
+    ); 
 
 
 
      // 4. POST: Void authorized payment
-        /*    Authorized_PaymentResponseDTO authorized_Payment(
+      Authorized_PaymentResponseDTO authorized_Payment(
 
             String authorization_id,
 
@@ -75,10 +75,10 @@ public interface PaymentsService {
 
             Authorized_PaymentRequestDTO authorized_PaymentRequestDTO
 
-    );*/
+    );
 
     // 5. GET: Show captured payment details
-    /* Show_Captured_PaymentResponseDTO show_Captured_Payment(
+  /*   Show_Captured_PaymentResponseDTO show_Captured_Payment(
 
             String captureid,
 
@@ -86,7 +86,7 @@ public interface PaymentsService {
         ); */
 
     // 6. POST: Refund captured payment
-      /*     Refund_Captured_PaymentResponseDTO refund_Captured_Payment(
+           Refund_Captured_PaymentResponseDTO refund_Captured_Payment(
 
             String captureid,
 
@@ -100,10 +100,10 @@ public interface PaymentsService {
 
             Refund_Captured_PaymentRequestDTO refund_Captured_PaymentRequestDTO
             
-        ); */
+        ); 
 
     // 7. POST: Find a list of eligible payment methods
-    /*   List_Eligible_PaymentResponseDTO list_Eligible_Payment(
+   List_Eligible_PaymentResponseDTO list_Eligible_Payment(
 
             String Authorization,
 
@@ -114,17 +114,17 @@ public interface PaymentsService {
             String PayPalClientMetadataId,
 
             List_Eligible_PaymentRequestDTO list_Eligible_PaymentRequestDTO
-        ); */
+        ); 
 
     // 8. GET: Show refund details
-       /*  Show_Refund_DetailsResponseDTO show_Refund_Details(
+     /*  Show_Refund_DetailsResponseDTO show_Refund_Details(
 
             String refundid,
 
             String Authorization,
 
             String PayPalAuthAssertion
-        );*/
+        ); */ 
 
         List<LinksResponseDTO> getAllLinks();
 

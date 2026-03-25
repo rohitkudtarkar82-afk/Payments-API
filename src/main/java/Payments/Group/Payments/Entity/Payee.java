@@ -21,9 +21,8 @@ public class Payee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
     @Column(name = "merchant_id")
-    private String merchant_id;
+    private UUID merchant_id;
 
     @Column(name = "email_address")
     private String email_address;

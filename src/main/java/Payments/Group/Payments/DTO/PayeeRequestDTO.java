@@ -1,5 +1,7 @@
 package Payments.Group.Payments.DTO;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class PayeeRequestDTO {
 
     @JsonProperty("merchant_id")
-    private String merchant_id;
+    private UUID merchant_id;
 
     @JsonProperty("email_address")
     private String email_address;

@@ -32,15 +32,14 @@ import Payments.Group.Payments.DTO.Refund_Captured_PaymentResponseDTO;
 import Payments.Group.Payments.Service.PaymentsService;
 
 @RestController
-//@RequestMapping("/v2/payments")
-@RequestMapping("/v2/payments/authorizations")
-//@RequestMapping("/v2/payments/captures")
+@RequestMapping("/v2/payments")
+
 public class PaymentController {
 
     @Autowired
     private PaymentsService paymentsService;
 
-       @PostMapping("/capture")
+       @PostMapping("/authorizations/capture")
     public ResponseEntity<Capture_PaymentResponseDTO> capture_Payment(@RequestParam String authorizationid, @RequestParam String PayPalRequestId, @RequestParam String Prefer, @RequestParam String Authorization, @RequestParam String PayPalAuthAssertio,
             @RequestBody Capture_PaymentRequestDTO capture_PaymentRequestDTO) {
 
@@ -50,7 +49,7 @@ public class PaymentController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     } 
 
-    /*  @PostMapping("/reauthorize")
+      @PostMapping("/authorizations/reauthorize")
     public ResponseEntity<Reauthorize_PaymentResponseDTO> reauthorize_Payment(@RequestParam String authorizationid, @RequestParam String PayPalRequestId, @RequestParam String Prefer, @RequestParam String Authorization, @RequestParam String PayPalAuthAssertio,
             @RequestBody Reauthorize_PaymentRequestDTO reauthorize_PaymentRequestDTO) {
 
@@ -59,9 +58,9 @@ public class PaymentController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
 
-            } */
+            } 
 
-         /*     @PostMapping("/void")
+              @PostMapping("/authorizations/void")
     public ResponseEntity<Authorized_PaymentResponseDTO> authorized_Payment(@RequestParam String authorizationid, @RequestParam String PayPalRequestId, @RequestParam String Prefer, @RequestParam String Authorization, @RequestParam String PayPalAuthAssertion,
             @RequestBody Authorized_PaymentRequestDTO authorized_PaymentRequestDTO) {
 
@@ -70,9 +69,9 @@ public class PaymentController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
 
-            }*/
+            }
 
-        /*   @PostMapping("/find-eligible-methods")
+           @PostMapping("/find-eligible-methods")
     public ResponseEntity<List_Eligible_PaymentResponseDTO> list_Eligible_Payment(@RequestParam String Authorization, @RequestParam String PayPalAuthAssertion, @RequestParam String UserAgent, @RequestParam String PayPalClientMetadataId,
             @RequestBody List_Eligible_PaymentRequestDTO list_Eligible_PaymentRequestDTO) {
 
@@ -81,9 +80,9 @@ public class PaymentController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
 
-            } */
+            } 
 
-        /*   @PostMapping("/refund")
+         @PostMapping("/captures/refund")
     public ResponseEntity<Refund_Captured_PaymentResponseDTO> refund_Captured_Payment(@RequestParam String captureid, @RequestParam String PayPalRequestId, @RequestParam String Prefer, @RequestParam String Authorization, @RequestParam String PayPalAuthAssertion,
             @RequestBody Refund_Captured_PaymentRequestDTO refund_Captured_PaymentRequestDTO) {
 
@@ -92,6 +91,6 @@ public class PaymentController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
 
-            }*/
+            }
         
 }

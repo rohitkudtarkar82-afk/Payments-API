@@ -25,10 +25,10 @@ public class Payment_Instruction {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column(name = "payee_pricing_tier_id")
-    private String payee_pricing_tier_id;
+    private UUID payee_pricing_tier_id;
 
     @Column(name = "payee_receivable_fx_rate_id")
-    private String payee_receivable_fx_rate_id;
+    private UUID payee_receivable_fx_rate_id;
 
     @Column(name = "disbursement_mode")
     private String disbursement_mode;

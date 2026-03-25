@@ -2,6 +2,8 @@ package Payments.Group.Payments.ServiceImpl;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.time.Instant;
+
 import Payments.Group.Payments.Entity.Channel;
 import Payments.Group.Payments.Entity.Converted_Amount;
 import Payments.Group.Payments.Entity.Preferences; 
@@ -234,9 +236,10 @@ public class PaymentsServiceImpl implements PaymentsService {
     
 
 
-    /*   @Override
+    /*    @Override
     public Show_Details_PaymentResponseDTO show_Details_Payment(String authorizationid, String Authorization,
             String PayPalAuthAssertion) {
+
         
                 
 
@@ -351,7 +354,6 @@ public class PaymentsServiceImpl implements PaymentsService {
                 InsuranceResponseDTO insuranceResponseDTO = new InsuranceResponseDTO();
                 Shipping_DiscountResponseDTO shipping_DiscountResponseDTO = new Shipping_DiscountResponseDTO();
                 DiscountResponseDTO discountResponseDTO = new DiscountResponseDTO();
-                Seller_Receivable_BreakdownResponseDTO seller_Receivable_BreakdownResponseDTO2 = new Seller_Receivable_BreakdownResponseDTO();
                 Gross_AmountResponseDTO gross_AmountResponseDTO = new Gross_AmountResponseDTO();
                 Paypal_FeeResponseDTO paypal_FeeResponseDTO = new Paypal_FeeResponseDTO();
                 Paypal_Fee_Receivable_CurrencyResponseDTO paypal_Fee_Receivable_CurrencyResponseDTO = new Paypal_Fee_Receivable_CurrencyResponseDTO();
@@ -363,6 +365,7 @@ public class PaymentsServiceImpl implements PaymentsService {
                 SchemaResponseDTO schemaResponseDTO = new SchemaResponseDTO();
                 Target_SchemaResponseDTO target_SchemaResponseDTO = new Target_SchemaResponseDTO();
                 MediaResponseDTO mediaResponseDTO = new MediaResponseDTO();
+                Platform_FeesResponseDTO platform_FeesResponseDTO = new Platform_FeesResponseDTO();
                 
 
                 
@@ -408,8 +411,8 @@ public class PaymentsServiceImpl implements PaymentsService {
 
 if (paymentInstruction != null) {
     paymentInstruction.setDisbursement_mode(paymentInstruction.getDisbursement_mode());
-    paymentInstruction.setPayee_pricing_tier_id(paymentInstruction.getPayee_pricing_tier_id());
-    paymentInstruction.setPayee_receivable_fx_rate_id(paymentInstruction.getPayee_receivable_fx_rate_id());
+    paymentInstruction.setPayee_pricing_tier_id(paymentInstruction.getPayee_pricing_tier_id().randomUUID());
+    paymentInstruction.setPayee_receivable_fx_rate_id(paymentInstruction.getPayee_receivable_fx_rate_id().randomUUID());
 }
 
                 AmountRequestDTO amountRequestDTO = capture_PaymentRequestDTO.getAmount();
@@ -465,13 +468,15 @@ if (paymentInstruction != null) {
                target_SchemaRepository.save(target_Schema);
                mediaRepository.save(media);
                Payment_Instruction payment_Instruction = new Payment_Instruction();
-paymentInstruction.setDisbursement_mode(payment_InstructionRequestDTO.getDisbursement_mode());
-payment_InstructionRepository.save(payment_Instruction);
+              paymentInstruction.setDisbursement_mode(payment_InstructionRequestDTO.getDisbursement_mode());
+               payment_InstructionRepository.save(payment_Instruction);
                
 
                 // Get value To Entity And Se to value ResponseDTO
+                status_DetailsResponseDTO.setId(status_Details.getId());
                 status_DetailsResponseDTO.setReason(status_Details.getReason());
                 amountResponseDTO.setPayee(payeeResponseDTO);
+                amountResponseDTO.setId(amount.getId());
                 amountResponseDTO.setCurrency_code(amount.getCurrency_code());
                 amountResponseDTO.setValue(amount.getValue());
                 amountResponseDTO.setBreakdown(breakdownResponseDTO);
@@ -482,41 +487,64 @@ payment_InstructionRepository.save(payment_Instruction);
                 breakdownResponseDTO.setInsurance(insuranceResponseDTO);
                 breakdownResponseDTO.setShipping_Discount(shipping_DiscountResponseDTO);
                 breakdownResponseDTO.setDiscount(discountResponseDTO);
+                item_TotalResponseDTO.setId(item_Total.getId());
                 item_TotalResponseDTO.setCurrency_code(item_Total.getCurrency_code());
                 item_TotalResponseDTO.setValue(item_Total.getValue());
+                shippingResponseDTO.setId(shipping.getId());
                 shippingResponseDTO.setCurrency_code(shipping.getCurrency_code());
                 shippingResponseDTO.setValue(shipping.getValue());
+                handlingResponseDTO.setId(handling.getId());
                 handlingResponseDTO.setCurrency_code(handling.getCurrency_code());
                 handlingResponseDTO.setValue(handling.getValue());
+                tax_TotalResponseDTO.setId(tax_Total.getId());
                 tax_TotalResponseDTO.setCurrency_Code(tax_Total.getCurrency_code());
                 tax_TotalResponseDTO.setValue(tax_Total.getValue());
+                insuranceResponseDTO.setId(insurance.getId());
                 insuranceResponseDTO.setCurrency_code(insurance.getCurrency_code());
                 insuranceResponseDTO.setValue(insurance.getValue());
+                shipping_DiscountResponseDTO.setId(shipping_Discount.getId());
                 shipping_DiscountResponseDTO.setCurrency_code(shipping_Discount.getCurrency_code());
                 shipping_DiscountResponseDTO.setValue(shipping_Discount.getValue());
+                discountResponseDTO.setId(discount.getId());
                 discountResponseDTO.setCurrency_code(discount.getCurrency_code());
                 discountResponseDTO.setValue(discount.getValue());
                 network_Transaction_ReferenceResponseDTO.setId(network_Transaction_Reference.getId());
                 network_Transaction_ReferenceResponseDTO.setDate(network_Transaction_Reference.getDate());
                 network_Transaction_ReferenceResponseDTO.setAcquirer_reference_number(network_Transaction_Reference.getAcquirer_reference_number());
                 network_Transaction_ReferenceResponseDTO.setNetwork(network_Transaction_Reference.getNetwork());
+                seller_ProtectionResponseDTO.setId(seller_Protection.getId());
                 seller_ProtectionResponseDTO.setDispute_Categories(seller_Protection.getDispute_categories());
                 seller_ProtectionResponseDTO.setStatus(seller_Protection.getStatus());
+                seller_Receivable_BreakdownResponseDTO.setGross_Amount(gross_AmountResponseDTO);
+                seller_Receivable_BreakdownResponseDTO.setPaypal_Fee(paypal_FeeResponseDTO);
+                seller_Receivable_BreakdownResponseDTO.setPaypal_Fee_Receivable_Currency(paypal_Fee_Receivable_CurrencyResponseDTO);
+                seller_Receivable_BreakdownResponseDTO.setNet_Amount(net_AmountResponseDTO);
+                seller_Receivable_BreakdownResponseDTO.setReceivable_Amount(receivable_AmountResponseDTO);
+                seller_Receivable_BreakdownResponseDTO.setExchange_Rate(exchange_RateResponseDTO);
+                seller_Receivable_BreakdownResponseDTO.setPlatform_Fees(List.of(platform_FeesResponseDTO));
+                platform_FeesResponseDTO.setAmount(amountResponseDTO);
+                platform_FeesResponseDTO.setPayee(payeeResponseDTO);
+                gross_AmountResponseDTO.setId(gross_Amount.getId());
                 gross_AmountResponseDTO.setCurrency_code(gross_Amount.getCurrency_code());
                 gross_AmountResponseDTO.setValue(gross_Amount.getValue());
+                paypal_FeeResponseDTO.setId(paypal_Fee.getId());
                 paypal_FeeResponseDTO.setCurrency_code(paypal_Fee.getCurrency_code());
                 paypal_FeeResponseDTO.setValue(paypal_Fee.getValue());
+                paypal_Fee_Receivable_CurrencyResponseDTO.setId(paypal_Fee_Receivable_Currency.getId());
                 paypal_Fee_Receivable_CurrencyResponseDTO.setCurrency_code(paypal_Fee_Receivable_Currency.getCurrency_code());
                 paypal_Fee_Receivable_CurrencyResponseDTO.setValue(paypal_Fee_Receivable_Currency.getValue());
+                net_AmountResponseDTO.setId(net_Amount.getId());
                 net_AmountResponseDTO.setCurrency_code(net_Amount.getCurrency_code());
                 net_AmountResponseDTO.setValue(net_Amount.getValue());
+                receivable_AmountResponseDTO.setId(receivable_Amount.getId());
                 receivable_AmountResponseDTO.setCurrency_code(receivable_Amount.getCurrency_code());
                 receivable_AmountResponseDTO.setValue(receivable_Amount.getValue());
-                exchange_RateResponseDTO.setSource_currency(exchange_Rate.getSource_currency());
+                exchange_RateResponseDTO.setId(exchange_Rate.getId());
                 exchange_RateResponseDTO.setTarget_currency(exchange_Rate.getTarget_currency());
                 exchange_RateResponseDTO.setValue(exchange_Rate.getValue());
                 payeeResponseDTO.setEmail_address(payee.getEmail_address());
                 payeeResponseDTO.setMerchant_id(payee.getMerchant_id());
+                processor_ResponseResponseDTO.setId(processor_Response.getId());
                 processor_ResponseResponseDTO.setAvs_code(processor_Response.getAvs_code());
                 processor_ResponseResponseDTO.setCvv_code(processor_Response.getCvv_code());
                 processor_ResponseResponseDTO.setPayment_advice_code(processor_Response.getPayment_advice_code());
@@ -526,10 +554,16 @@ payment_InstructionRepository.save(payment_Instruction);
                 related_IdsResponseDTO.setAuthorization_id(related_Ids.getAuthorization_id().randomUUID());
                 related_IdsResponseDTO.setCapture_id(related_Ids.getCapture_id().randomUUID());
                 related_IdsResponseDTO.setOrder_id(related_Ids.getOrder_id().randomUUID());
+                linksResponseDTO.setId(links.getId());
                 linksResponseDTO.setSchema(schemaResponseDTO);
+                
                 schemaResponseDTO.setMedia(mediaResponseDTO);
+                mediaResponseDTO.setId(UUID.randomUUID());
                 linksResponseDTO.setTarget_Schema(target_SchemaResponseDTO);
+                target_SchemaResponseDTO.setId(UUID.randomUUID());
                 target_SchemaResponseDTO.setMedia(mediaResponseDTO);
+                
+
                 
 
                 capture_PaymentResponseDTO.setAmount(amountResponseDTO);
@@ -540,12 +574,20 @@ payment_InstructionRepository.save(payment_Instruction);
                 capture_PaymentResponseDTO.setStatus_Details(status_DetailsResponseDTO);
                 capture_PaymentResponseDTO.setSupplementary_Data(supplementary_DataResponseDTO);
                 capture_PaymentResponseDTO.setLinks(List.of(linksResponseDTO));
-                
-                
-               
-                
+                capture_PaymentResponseDTO.setId(UUID.randomUUID());
+                capture_PaymentResponseDTO.setStatus("COMPLETED");
+                capture_PaymentResponseDTO.setInvoice_id(UUID.randomUUID());
+                capture_PaymentResponseDTO.setCustom_id(UUID.randomUUID());
+                capture_PaymentResponseDTO.setCreate_time(Instant.now());
+                capture_PaymentResponseDTO.setUpdate_time(Instant.now());
+                capture_PaymentResponseDTO.setSeller_Receivable_Breakdown(seller_Receivable_BreakdownResponseDTO);
+
                 
 
+
+
+
+                
                 
                 return capture_PaymentResponseDTO;
                 
@@ -554,7 +596,7 @@ payment_InstructionRepository.save(payment_Instruction);
                 
 
 
-    } 
+    }
     
     
     
@@ -641,7 +683,7 @@ public List<LinksResponseDTO> getAllLinks() {
 }
  
       
-            /*      @Override
+                  @Override
                 public Reauthorize_PaymentResponseDTO reauthorize_Payment(String authorizationid,
                         String PayPalRequestId, String Prefer, String Authorization, String PayPalAuthAssertion,
                         Reauthorize_PaymentRequestDTO reauthorize_PaymentRequestDTO) {
@@ -720,9 +762,10 @@ public List<LinksResponseDTO> getAllLinks() {
                 payeeRepository.save(payee);
 
 
-
+                amountResponseDTO.setId(UUID.randomUUID());
                 amountResponseDTO.setCurrency_code(amount.getCurrency_code());
                 amountResponseDTO.setValue(amount.getValue());
+                status_DetailsResponseDTO.setId(UUID.randomUUID());
                 status_DetailsResponseDTO.setReason(status_Details.getReason());
                 amountResponseDTO.setBreakdown(breakdownResponseDTO);
                 breakdownResponseDTO.setItem_Total(item_TotalResponseDTO);
@@ -732,24 +775,32 @@ public List<LinksResponseDTO> getAllLinks() {
                 breakdownResponseDTO.setInsurance(insuranceResponseDTO);
                 breakdownResponseDTO.setShipping_Discount(shipping_DiscountResponseDTO);
                 breakdownResponseDTO.setDiscount(discountResponseDTO);
+                item_TotalResponseDTO.setId(UUID.randomUUID());
                 item_TotalResponseDTO.setCurrency_code(item_Total.getCurrency_code());
                 item_TotalResponseDTO.setValue(item_Total.getValue());
+                shippingResponseDTO.setId(UUID.randomUUID());
                 shippingResponseDTO.setCurrency_code(shipping.getCurrency_code());
                 shippingResponseDTO.setValue(shipping.getValue());
+                handlingResponseDTO.setId(UUID.randomUUID());
                 handlingResponseDTO.setCurrency_code(handling.getCurrency_code());
                 handlingResponseDTO.setValue(handling.getValue());
+                tax_TotalResponseDTO.setId(UUID.randomUUID());
                 tax_TotalResponseDTO.setCurrency_Code(tax_Total.getCurrency_code());
                 tax_TotalResponseDTO.setValue(tax_Total.getValue());
+                insuranceResponseDTO.setId(UUID.randomUUID());
                 insuranceResponseDTO.setCurrency_code(insurance.getCurrency_code());
                 insuranceResponseDTO.setValue(insurance.getValue());
+                shipping_DiscountResponseDTO.setId(UUID.randomUUID());
                 shipping_DiscountResponseDTO.setCurrency_code(shipping_Discount.getCurrency_code());
                 shipping_DiscountResponseDTO.setValue(shipping_Discount.getValue());
+                discountResponseDTO.setId(UUID.randomUUID());
                 discountResponseDTO.setCurrency_code(discount.getCurrency_code());
                 discountResponseDTO.setValue(discount.getValue());
                 network_Transaction_ReferenceResponseDTO.setId(network_Transaction_Reference.getId());
                 network_Transaction_ReferenceResponseDTO.setDate(network_Transaction_Reference.getDate());
                 network_Transaction_ReferenceResponseDTO.setNetwork(network_Transaction_Reference.getNetwork());
                 network_Transaction_ReferenceResponseDTO.setAcquirer_reference_number(network_Transaction_Reference.getAcquirer_reference_number());
+                seller_ProtectionResponseDTO.setId(UUID.randomUUID());
                 seller_ProtectionResponseDTO.setStatus(seller_Protection.getStatus());
                 seller_ProtectionResponseDTO.setDispute_Categories(seller_Protection.getDispute_categories());
                 supplementary_DataResponseDTO.setRelated_Ids(related_IdsResponseDTO);
@@ -757,10 +808,14 @@ public List<LinksResponseDTO> getAllLinks() {
                 related_IdsResponseDTO.setCapture_id(related_Ids.getCapture_id().randomUUID());
                 related_IdsResponseDTO.setOrder_id(related_Ids.getOrder_id().randomUUID());
                 payeeResponseDTO.setEmail_address(payee.getEmail_address());
-                payeeResponseDTO.setMerchant_id(payee.getMerchant_id());    
+                payeeResponseDTO.setMerchant_id(payee.getMerchant_id());
+                linksResponseDTO.setId(UUID.randomUUID());    
                 linksResponseDTO.setSchema(schemaResponseDTO);
+                schemaResponseDTO.setId(UUID.randomUUID());
                 schemaResponseDTO.setMedia(mediaResponseDTO);
+                mediaResponseDTO.setId(UUID.randomUUID());
                 linksResponseDTO.setTarget_Schema(target_SchemaResponseDTO);
+                target_SchemaResponseDTO.setId(UUID.randomUUID());
                 target_SchemaResponseDTO.setMedia(mediaResponseDTO);
                 
                 
@@ -771,23 +826,22 @@ public List<LinksResponseDTO> getAllLinks() {
                 reauthorize_PaymentResponseDTO.setSeller_Protection(seller_ProtectionResponseDTO);
                 reauthorize_PaymentResponseDTO.setStatus_Details(status_DetailsResponseDTO);
                 reauthorize_PaymentResponseDTO.setSupplementary_Data(supplementary_DataResponseDTO);
+                reauthorize_PaymentResponseDTO.setStatus("COMPLETED");
+                reauthorize_PaymentResponseDTO.setId(UUID.randomUUID());
+                reauthorize_PaymentResponseDTO.setInvoice_id(UUID.randomUUID());
+                reauthorize_PaymentResponseDTO.setCustom_id(UUID.randomUUID());
+                reauthorize_PaymentResponseDTO.setCreate_time(Instant.now());
+                reauthorize_PaymentResponseDTO.setExpiration_time(Instant.now());
+                reauthorize_PaymentResponseDTO.setUpdate_time(Instant.now());
+
+                
 
                 return reauthorize_PaymentResponseDTO;
 
                 
-    }*/
-
-
-
-
-              
-
-     
-
-     
-
+    }
     
-     /*      @Override
+          @Override
     public Authorized_PaymentResponseDTO authorized_Payment(String authorization_id, String Authorization,
             String PayPalAuthAssertion, String PayPalRequestId, String Prefer,
             Authorized_PaymentRequestDTO authorized_PaymentRequestDTO) {
@@ -850,7 +904,9 @@ public List<LinksResponseDTO> getAllLinks() {
                 related_IdsRepository.save(related_Ids);
                 payeeRepository.save(payee);
 
+                status_DetailsResponseDTO.setId(UUID.randomUUID());
                 status_DetailsResponseDTO.setReason(status_Details.getReason());
+                amountResponseDTO.setId(UUID.randomUUID());
                 amountResponseDTO.setCurrency_code(amount.getCurrency_code());
                 amountResponseDTO.setValue(amount.getValue());
                 amountResponseDTO.setBreakdown(breakdownResponseDTO);
@@ -861,24 +917,32 @@ public List<LinksResponseDTO> getAllLinks() {
                 breakdownResponseDTO.setInsurance(insuranceResponseDTO);
                 breakdownResponseDTO.setShipping_Discount(shipping_DiscountResponseDTO);
                 breakdownResponseDTO.setDiscount(discountResponseDTO);
+                item_TotalResponseDTO.setId(UUID.randomUUID());
                 item_TotalResponseDTO.setCurrency_code(item_Total.getCurrency_code());
                 item_TotalResponseDTO.setValue(item_Total.getValue());
+                shippingResponseDTO.setId(UUID.randomUUID());
                 shippingResponseDTO.setCurrency_code(shipping.getCurrency_code());
                 shippingResponseDTO.setValue(shipping.getValue());
+                handlingResponseDTO.setId(UUID.randomUUID());
                 handlingResponseDTO.setCurrency_code(handling.getCurrency_code());
                 handlingResponseDTO.setValue(handling.getValue());
+                tax_TotalResponseDTO.setId(UUID.randomUUID());
                 tax_TotalResponseDTO.setCurrency_Code(tax_Total.getCurrency_code());
                 tax_TotalResponseDTO.setValue(tax_Total.getValue());
+                insuranceResponseDTO.setId(UUID.randomUUID());
                 insuranceResponseDTO.setCurrency_code(insurance.getCurrency_code());
                 insuranceResponseDTO.setValue(insurance.getValue());
+                shipping_DiscountResponseDTO.setId(UUID.randomUUID());
                 shipping_DiscountResponseDTO.setCurrency_code(shipping_Discount.getCurrency_code());
                 shipping_DiscountResponseDTO.setValue(shipping_Discount.getValue());
+                discountResponseDTO.setId(UUID.randomUUID());
                 discountResponseDTO.setCurrency_code(discount.getCurrency_code());
                 discountResponseDTO.setValue(discount.getValue());
                 network_Transaction_ReferenceResponseDTO.setId(network_Transaction_Reference.getId());
                 network_Transaction_ReferenceResponseDTO.setDate(network_Transaction_Reference.getDate());
                 network_Transaction_ReferenceResponseDTO.setNetwork(network_Transaction_Reference.getNetwork());
                 network_Transaction_ReferenceResponseDTO.setAcquirer_reference_number(network_Transaction_Reference.getAcquirer_reference_number());
+                seller_ProtectionResponseDTO.setId(UUID.randomUUID());
                 seller_ProtectionResponseDTO.setStatus(seller_Protection.getStatus());
                 seller_ProtectionResponseDTO.setDispute_Categories(seller_Protection.getDispute_categories());
                 supplementary_DataResponseDTO.setRelated_Ids(related_IdsResponseDTO);
@@ -886,21 +950,33 @@ public List<LinksResponseDTO> getAllLinks() {
                 related_IdsResponseDTO.setCapture_id(related_Ids.getCapture_id().randomUUID());
                 related_IdsResponseDTO.setOrder_id(related_Ids.getOrder_id().randomUUID());
                 payeeResponseDTO.setEmail_address(payee.getEmail_address());
-                payeeResponseDTO.setMerchant_id(payee.getMerchant_id()); 
+                payeeResponseDTO.setMerchant_id(payee.getMerchant_id().randomUUID()); 
+                linksResponseDTO.setId(UUID.randomUUID());
                 linksResponseDTO.setSchema(schemaResponseDTO);
+                schemaResponseDTO.setId(UUID.randomUUID());
                 schemaResponseDTO.setMedia(mediaResponseDTO);
-                linksResponseDTO.setTarget_Schema(target_SchemaResponseDTO);  
+                linksResponseDTO.setTarget_Schema(target_SchemaResponseDTO); 
+                target_SchemaResponseDTO.setId(UUID.randomUUID());
                 target_SchemaResponseDTO.setMedia(mediaResponseDTO);
+                mediaResponseDTO.setId(UUID.randomUUID());
 
                 authorized_PaymentResponseDTO.setStatus_details(status_DetailsResponseDTO);
                 authorized_PaymentResponseDTO.setAmount(amountResponseDTO);
                 authorized_PaymentResponseDTO.setNetwork_transaction_reference(network_Transaction_ReferenceResponseDTO);
                 authorized_PaymentResponseDTO.setSeller_protection(seller_ProtectionResponseDTO);
                 authorized_PaymentResponseDTO.setLinks(List.of(linksResponseDTO));
-                
-                
-                
-                
+                authorized_PaymentResponseDTO.setId(UUID.randomUUID());
+                authorized_PaymentResponseDTO.setInvoice_id(UUID.randomUUID());
+                authorized_PaymentResponseDTO.setCustom_id(UUID.randomUUID());
+                authorized_PaymentResponseDTO.setCreate_time(Instant.now());
+                authorized_PaymentResponseDTO.setUpdate_time(Instant.now());
+                authorized_PaymentResponseDTO.setExpiration_time(Instant.now().plusSeconds(3600));
+                authorized_PaymentResponseDTO.setId(UUID.randomUUID());
+                authorized_PaymentResponseDTO.setCustom_id(UUID.randomUUID());
+                authorized_PaymentResponseDTO.setInvoice_id(UUID.randomUUID());
+                authorized_PaymentResponseDTO.setCreate_time(Instant.now());
+                authorized_PaymentResponseDTO.setExpiration_time(Instant.now());
+                authorized_PaymentResponseDTO.setStatus("COMPLETED");
                 authorized_PaymentResponseDTO.setSupplementary_Data(supplementary_DataResponseDTO);
                 authorized_PaymentResponseDTO.setPayee(payeeResponseDTO);
                 
@@ -912,7 +988,7 @@ public List<LinksResponseDTO> getAllLinks() {
 
 
         
-    } */
+    } 
 
 
 
@@ -934,7 +1010,7 @@ public List<LinksResponseDTO> getAllLinks() {
         
     } */
 
-    /*   @Override
+       @Override
     public Refund_Captured_PaymentResponseDTO refund_Captured_Payment(String captureid, String PayPalRequestId,
             String Prefer, String Authorization, String PayPalAuthAssertion,
             Refund_Captured_PaymentRequestDTO refund_Captured_PaymentRequestDTO) {
@@ -1026,8 +1102,10 @@ Payment_InstructionRequestDTO payment_InstructionRequestDTO =
                 target_SchemaRepository.save(target_Schema);
                 mediaRepository.save(media);
 
+                amountResponseDTO.setId(UUID.randomUUID());
                 amountResponseDTO.setCurrency_code(amount.getCurrency_code());
                 amountResponseDTO.setValue(amount.getValue());
+                status_DetailsResponseDTO.setId(UUID.randomUUID());
                 status_DetailsResponseDTO.setReason(status_Details.getReason());
                 seller_Payable_BreakdownResponseDTO.setGross_Amount(gross_AmountResponseDTO);
                 seller_Payable_BreakdownResponseDTO.setPaypal_Fee(paypal_FeeResponseDTO);
@@ -1037,37 +1115,51 @@ Payment_InstructionRequestDTO payment_InstructionRequestDTO =
                 seller_Payable_BreakdownResponseDTO.setPlatform_Fees(List.of(platform_FeesResponseDTO));
                 platform_FeesResponseDTO.setAmount(amountResponseDTO);
                 platform_FeesResponseDTO.setPayee(payeeResponseDTO);
+                payeeResponseDTO.setEmail_address(payee.getEmail_address());
+                payeeResponseDTO.setMerchant_id(payee.getMerchant_id());
                 net_Amount_BreakdownResponseDTO.setPayable_Amount(payable_AmountResponseDTO);
                 net_Amount_BreakdownResponseDTO.setConverted_Amount(converted_AmountResponseDTO);
                 net_Amount_BreakdownResponseDTO.setExchange_Rate(exchange_RateResponseDTO);
                 seller_Payable_BreakdownResponseDTO.setNet_Amount_Breakdown(List.of(net_Amount_BreakdownResponseDTO));
                 seller_Payable_BreakdownResponseDTO.setTotal_Refunded_Amount(total_Refunded_AmountResponseDTO);
+                gross_AmountResponseDTO.setId(UUID.randomUUID());
                 gross_AmountResponseDTO.setCurrency_code(gross_Amount.getCurrency_code());
                 gross_AmountResponseDTO.setValue(gross_Amount.getValue());
+                paypal_FeeResponseDTO.setId(UUID.randomUUID());
                 paypal_FeeResponseDTO.setCurrency_code(paypal_Fee.getCurrency_code());
                 paypal_FeeResponseDTO.setValue(paypal_Fee.getValue());
+                paypal_Fee_Receivable_CurrencyResponseDTO.setId(UUID.randomUUID());
                 paypal_Fee_Receivable_CurrencyResponseDTO.setCurrency_code(paypal_Fee_Receivable_Currency.getCurrency_code());
                 paypal_Fee_Receivable_CurrencyResponseDTO.setValue(paypal_Fee_Receivable_Currency.getValue());
+                net_AmountResponseDTO.setId(UUID.randomUUID());
                 net_AmountResponseDTO.setCurrency_code(net_Amount.getCurrency_code());
                 net_AmountResponseDTO.setValue(net_Amount.getValue());
+                net_Amount_Receivable_CurrencyResponseDTO.setId(UUID.randomUUID());
                 net_Amount_Receivable_CurrencyResponseDTO.setCurrency_code(net_Amount_Receivable_Currency.getCurrency_code());
                 net_Amount_Receivable_CurrencyResponseDTO.setValue(net_Amount_Receivable_Currency.getValue());
+                payable_AmountResponseDTO.setId(UUID.randomUUID());
                 payable_AmountResponseDTO.setCurrency_code(payable_Amount.getCurrency_code());
                 payable_AmountResponseDTO.setValue(payable_Amount.getValue());
+                converted_AmountResponseDTO.setId(UUID.randomUUID());
                 converted_AmountResponseDTO.setCurrency_code(converted_Amount.getCurrency_code());
                 converted_AmountResponseDTO.setValue(converted_Amount.getValue());
+                exchange_RateResponseDTO.setId(UUID.randomUUID());
                 exchange_RateResponseDTO.setSource_currency(exchange_Rate.getSource_currency());
                 exchange_RateResponseDTO.setTarget_currency(exchange_Rate.getTarget_currency());
                 exchange_RateResponseDTO.setValue(exchange_Rate.getValue());
+                total_Refunded_AmountResponseDTO.setId(UUID.randomUUID());
                 total_Refunded_AmountResponseDTO.setCurrency_Code(total_Refunded_Amount.getCurrency_code());
                 total_Refunded_AmountResponseDTO.setValue(total_Refunded_Amount.getValue());
                 payerResponseDTO.setEmail_address(payer.getEmail_address());
                 payerResponseDTO.setMerchant_id(payer.getMerchant_id());
+                linksResponseDTO.setId(UUID.randomUUID());
                 linksResponseDTO.setSchema(schemaResponseDTO);
+                schemaResponseDTO.setId(UUID.randomUUID());
                 schemaResponseDTO.setMedia(mediaResponseDTO);
                 linksResponseDTO.setTarget_Schema(target_SchemaResponseDTO);
                 target_SchemaResponseDTO.setMedia(mediaResponseDTO);
-
+                target_SchemaResponseDTO.setId(UUID.randomUUID());
+                mediaResponseDTO.setId(UUID.randomUUID());
                
 
                 
@@ -1076,20 +1168,20 @@ Payment_InstructionRequestDTO payment_InstructionRequestDTO =
                 refund_Captured_PaymentResponseDTO.setSeller_Payable_Breakdown(seller_Payable_BreakdownResponseDTO);
                 refund_Captured_PaymentResponseDTO.setPayer(payerResponseDTO);
                 refund_Captured_PaymentResponseDTO.setLinks(List.of(linksResponseDTO));
+                refund_Captured_PaymentResponseDTO.setId(UUID.randomUUID());
+                refund_Captured_PaymentResponseDTO.setCreate_time(Instant.now());
+                refund_Captured_PaymentResponseDTO.setCustom_id(UUID.randomUUID());
+                refund_Captured_PaymentResponseDTO.setInvoice_id(UUID.randomUUID());
+                refund_Captured_PaymentResponseDTO.setUpdate_time(Instant.now());
                
-
                 return refund_Captured_PaymentResponseDTO;
-
-
-
-
-        
-    }*/
+   
+    }
 
         
     
   
-   /*   @Override
+      @Override
     public List_Eligible_PaymentResponseDTO list_Eligible_Payment(String Authorization, String PayPalAuthAssertion,
             String UserAgent, String PayPalClientMetadataId,
             List_Eligible_PaymentRequestDTO list_Eligible_PaymentRequestDTO) {
@@ -1332,16 +1424,18 @@ if (list_Eligible_PaymentResponseDTO.getPayment_Tokens() != null) {
 
     list_Eligible_PaymentResponseDTO.setPayment_Tokens(tokenList);  // ✅ Set Token List into List_Eligible_PaymentResponseDTO
 }
-
+                venmoResponseDTO.setId(UUID.randomUUID());
                 venmoResponseDTO.setCan_be_vaulted(venmo.getCanBeVaulted());
                 venmoResponseDTO.setCountry_code(venmo.getCountryCode());
                 venmoResponseDTO.setProduct_code(venmo.getProductCode());
                 venmoResponseDTO.setEligible_in_paypal_network(venmo.getEligibleInPaypalNetwork());
                 venmoResponseDTO.setRecommended(venmo.getRecommended());
                 venmoResponseDTO.setRecommended_priority(venmo.getRecommendedPriority());
+                paypal_CreditResponseDTO.setId(UUID.randomUUID());
                 paypal_CreditResponseDTO.setCan_be_vaulted(paypal_Credit.getCan_be_vaulted());
                 paypal_CreditResponseDTO.setCountry_code(paypal_Credit.getCountry_code());
                 paypal_CreditResponseDTO.setProduct_code(paypal_Credit.getProduct_code());
+                paypal_Pay_LaterResponseDTO.setId(paypal_Pay_Later.getId());
                 paypal_Pay_LaterResponseDTO.setCan_be_vaulted(paypal_Pay_Later.getCan_be_vaulted());
                 paypal_Pay_LaterResponseDTO.setCountry_code(paypal_Pay_Later.getCountry_code());
                 paypal_Pay_LaterResponseDTO.setProduct_code(paypal_Pay_Later.getProduct_code());
@@ -1355,12 +1449,16 @@ if (list_Eligible_PaymentResponseDTO.getPayment_Tokens() != null) {
                 eligible_MethodsResponseDTO.setPaypal_Credit(paypal_CreditResponseDTO);
                 eligible_MethodsResponseDTO.setPaypal_Pay_Later(paypal_Pay_LaterResponseDTO);
                 linksResponseDTO.setSchema(schemaResponseDTO);
+                schemaResponseDTO.setId(schema.getId());
                 schemaResponseDTO.setMedia(mediaResponseDTO);
+                linksResponseDTO.setId(links.getId());
                 linksResponseDTO.setTarget_Schema(target_SchemaResponseDTO);
+                target_SchemaResponseDTO.setId(target_Schema.getId());
                 target_SchemaResponseDTO.setMedia(mediaResponseDTO);
+                mediaResponseDTO.setId(media.getId());
                 payment_TokensResponseDTO.setLinks(List.of(linksResponseDTO));
-                
                 payment_TokensResponseDTO.setPayment_Source(payment_SourceResponseDTO);
+                
                 payment_SourceResponseDTO.setPayment_Source_Paypal(payment_Source_PaypalResponseDTO);
                 payment_SourceResponseDTO.setPayment_Source_Venmo(payment_Source_VenmoResponseDTO);
                 
@@ -1370,7 +1468,7 @@ if (list_Eligible_PaymentResponseDTO.getPayment_Tokens() != null) {
                 return list_Eligible_PaymentResponseDTO;
                 
         
-    } */
+    } 
 
 
 
@@ -1381,10 +1479,10 @@ if (list_Eligible_PaymentResponseDTO.getPayment_Tokens() != null) {
 
 
   
-    /* @Override
+    /*  @Override
     public Show_Refund_DetailsResponseDTO show_Refund_Details(String refundid, String Authorization,
             String PayPalAuthAssertion) {
         
-    }
-    */
+    }*/
+    
 }
