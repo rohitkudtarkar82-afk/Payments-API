@@ -26,7 +26,7 @@ public class Related_Ids {
     @Column(name = "order_id")
     private UUID order_id;
 
-    @Column(name = "authorization_id")
+    @Column(name = "authorization id")
     private UUID authorization_id;
 
     @Column(name = "capture_id")

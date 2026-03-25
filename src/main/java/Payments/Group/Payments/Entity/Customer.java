@@ -2,7 +2,7 @@ package Payments.Group.Payments.Entity;
 
 import java.util.UUID;
 
-import Payments.Group.Payments.DTO.ChannelRequestDTO;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

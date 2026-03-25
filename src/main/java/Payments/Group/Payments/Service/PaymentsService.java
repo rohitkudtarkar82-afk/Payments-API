@@ -9,7 +9,6 @@ import Payments.Group.Payments.DTO.Capture_PaymentResponseDTO;
 import Payments.Group.Payments.DTO.LinksResponseDTO;
 import Payments.Group.Payments.DTO.List_Eligible_PaymentRequestDTO;
 import Payments.Group.Payments.DTO.List_Eligible_PaymentResponseDTO;
-import Payments.Group.Payments.DTO.Payment_InstructionRequestDTO;
 import Payments.Group.Payments.DTO.Reauthorize_PaymentRequestDTO;
 import Payments.Group.Payments.DTO.Reauthorize_PaymentResponseDTO;
 import Payments.Group.Payments.DTO.Refund_Captured_PaymentRequestDTO;
@@ -22,14 +21,12 @@ import Payments.Group.Payments.DTO.Show_Refund_DetailsResponseDTO;
 public interface PaymentsService {
 
     // 1. GET: Show details for authorized payment
-   /*  Show_Details_PaymentResponseDTO show_Details_Payment(
+     Show_Details_PaymentResponseDTO show_Details_Payment(
 
-            String authorizationid,
+            String authorizationid
 
-            String Authorization,
-
-            String PayPalAuthAssertion
-        );  */
+           
+        );   
 
     // 2. POST: Capture authorized payment
        Capture_PaymentResponseDTO capture_Payment(
@@ -78,12 +75,11 @@ public interface PaymentsService {
     );
 
     // 5. GET: Show captured payment details
-  /*   Show_Captured_PaymentResponseDTO show_Captured_Payment(
+     Show_Captured_PaymentResponseDTO show_Captured_Payment(
 
-            String captureid,
+            String captureid
 
-            String Authorization
-        ); */
+        ); 
 
     // 6. POST: Refund captured payment
            Refund_Captured_PaymentResponseDTO refund_Captured_Payment(
@@ -117,14 +113,12 @@ public interface PaymentsService {
         ); 
 
     // 8. GET: Show refund details
-     /*  Show_Refund_DetailsResponseDTO show_Refund_Details(
+      Show_Refund_DetailsResponseDTO show_Refund_Details(
 
-            String refundid,
+            String refundid
 
-            String Authorization,
-
-            String PayPalAuthAssertion
-        ); */ 
+            
+        );  
 
         List<LinksResponseDTO> getAllLinks();
 
